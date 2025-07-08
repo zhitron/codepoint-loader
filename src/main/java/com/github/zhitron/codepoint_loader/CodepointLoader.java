@@ -123,11 +123,11 @@ public abstract class CodepointLoader implements AutoCloseable {
      * 此方法用于需要处理字符数据的高级文本处理场景
      * 它确保以正确的方式处理字符边界，避免数据损坏或不一致
      *
-     * @param count 指定要弹出的代码点的数量
+     * @param offset 相对于当前位置的偏移量。
      * @return 返回弹出的代码点的整数值如果栈中没有足够的代码点，则行为未定义
      */
-    public final int popCodepoint(int count) {
-        return this.getCodepoint(count, true);
+    public final int popCodepoint(int offset) {
+        return this.getCodepoint(offset, true);
     }
 
     /**
