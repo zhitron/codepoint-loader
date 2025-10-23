@@ -21,6 +21,27 @@ public final class CodepointLoaderFactory {
     }
 
     /**
+     * 从字符串创建 CodepointLoader。
+     *
+     * @param input 字符串
+     * @return CodepointLoader 实例
+     */
+    public static CodepointLoader of(String input) {
+        return new CodepointLoaderByCharArray(input.toCharArray(), 1024);
+    }
+
+    /**
+     * 从字符串创建 CodepointLoader，并指定缓冲区大小。
+     *
+     * @param input      字符串
+     * @param bufferSize 缓冲区大小
+     * @return CodepointLoader 实例
+     */
+    public static CodepointLoader of(String input, int bufferSize) {
+        return new CodepointLoaderByCharArray(input.toCharArray(), bufferSize);
+    }
+
+    /**
      * 从字符数组创建 CodepointLoader。
      *
      * @param input 字符数组
@@ -180,27 +201,6 @@ public final class CodepointLoaderFactory {
      */
     public static CodepointLoader of(ReadableByteChannel input, Charset charset, int bufferSize) {
         return new CodepointSequenceLoaderByReadableByteChannel(input, charset, bufferSize);
-    }
-
-    /**
-     * 从字符串创建 CodepointLoader。
-     *
-     * @param input 字符串
-     * @return CodepointLoader 实例
-     */
-    public static CodepointLoader of(String input) {
-        return new CodepointLoaderByCharArray(input.toCharArray(), 1024);
-    }
-
-    /**
-     * 从字符串创建 CodepointLoader，并指定缓冲区大小。
-     *
-     * @param input      字符串
-     * @param bufferSize 缓冲区大小
-     * @return CodepointLoader 实例
-     */
-    public static CodepointLoader of(String input, int bufferSize) {
-        return new CodepointLoaderByCharArray(input.toCharArray(), bufferSize);
     }
 
     /**
